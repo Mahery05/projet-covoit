@@ -1,65 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <title>OtterCovoit | Accueil</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="index.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">OtterCovoit</a>
+  <head>
+    <title>OtterCovoit | Accueil</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+	<div class="navbar-header">
+	  <a class="navbar-brand" href="#">OtterCovoit</a>
+	</div>
+	<ul class="nav navbar-nav">
+	  <li class="active"><a href="#">Accueil</a></li>
+	</ul>
+	<ul class="nav navbar-nav navbar-right">
+	  <li><a href="#"><span class="glyphicon glyphicon-user"></span>Connection</a></li>
+	  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>S'inscrire</a></li>
+	</ul>
       </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Accueil</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Connection</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>S'inscrire</a></li>
-      </ul>
+    </nav> 
+    <div class="container">
+      <div class="row justify-content-center input-group input-group-lg">
+        <div id="Adresse_depart" class="col-xs-12 col-md-4">
+          <div class="icn">
+	    <i class="glyphicon glyphicon-pencil" title="Point de départ | Me localiser" alt="départ"></i>
+          </div>
+          <input type="text" id="ChmpAdresseDepart" data-html='true' autocomplete="off"  class='geocodify form-control buttonIndexTrajet' name="ChmpAdresseDepart" placeholder="Lieu de départ"/>
+        </div>
+        <div id="Adresse_arrivee" class="col-xs-12 col-md-4">
+          <div class="icn">
+	    <i class="glyphicon glyphicon-pencil" title="Point d'arrivé" alt="arrivé"></i>
+	  </div>
+          <input type="text" id="ChmpAdresseArrivee" data-html='true' class="form-control buttonIndexTrajet" autocomplete="off" name="ChmpAdresseArrivee" placeholder="Lieu d'arrivée"/>
+        </div>
+        <div id="Champs_date" class="col-xs-12 col-md-4">
+          <div class="icn">
+	    <i class="glyphicon glyphicon-calendar"></i>
+	  </div>
+          <input type="text" name="depart_le" id="depart_le" class='form-control buttonIndexTrajet' tabindex="4" placeholder="Date" readonly/>
+        </div>
+      </div>
     </div>
-  </nav> 
-
-  <div class="container">
-    <div class="row">
-      
-      <div id="Adresse_depart" class="col-xs-12 col-md-5">
-        <div class="icn">
-          <i class="glyphicon glyphicon-pencil" title="Point de départ | Me localiser" alt="départ"></i>
-        </div>
-        <input type="text" id="ChmpAdresseDepart" data-html='true' autocomplete="off"  class='geocodify form-control buttonIndexTrajet' name="ChmpAdresseDepart" placeholder="Lieu de départ"/>
+    <div class="marge">
+      <div class="center-block text-center">
+	<button type="button" class="btn btn-primary btn-lg">Proposer le trajet</button>
+	<button type="button" class="btn btn-primary btn-lg">rechercher le trajet</button>
       </div>
-
-      <div id="Adresse_arrivee" class="col-xs-12 col-md-5">
-        <div class="icn">
-          <i class="glyphicon glyphicon-pencil" title="Point d'arrivé" alt="arrivé"></i>
-        </div>
-        <input type="text" id="ChmpAdresseArrivee" data-html='true' class="form-control buttonIndexTrajet" autocomplete="off" name="ChmpAdresseArrivee" placeholder="Lieu d'arrivée"/>
-      </div>
-
-      <div id="Champs_date" class="col-xs-12 col-md-2">
-        <div class="icn">
-          <i class="glyphicon glyphicon-calendar"></i>
-        </div>
-        <input type="text" name="depart_le" id="depart_le" class='form-control buttonIndexTrajet' tabindex="4" placeholder="Date" readonly/>
-      </div>
-
     </div>
-  </div> 
-
-  <div class="center-block text-center">
-    <button type="button" class="btn btn-primary btn-lg">Proposer le trajet</button>
-    <button type="button" class="btn btn-primary btn-lg">rechercher le trajet</button>
-  </div> 
-
-</body>
-
+  </body>
 </html>
