@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="bootsrap-material-datetimepicker.css">
+    <script src="bootstrap-material-datetimepicker.js" type="dateJS">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
 	<div class="navbar-header">
 	  <a class="navbar-brand" href="#">OtterCovoit</a>
@@ -20,13 +23,13 @@
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
 	  <li><a href="#"><span class="glyphicon glyphicon-user"></span>Connection</a></li>
-	  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>S'inscrire</a></li>
+	  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> S'inscrire</a></li>
 	</ul>
       </div>
     </nav>
     
     <div class="container">
-      <div class="row justify-content-center input-group input-group-lg">
+      <div class="row justify-content-center input-group input-group-lg pad">
         <div id="Adresse_depart" class="col-xs-12 col-md-4">
           <div class="icn">
 	    <i class="glyphicon glyphicon-pencil" title="Point de départ | Me localiser" alt="départ"></i>
@@ -43,7 +46,7 @@
           <div class="icn">
 	    <i class="glyphicon glyphicon-calendar"></i>
 	  </div>
-          <input type="text" name="depart_le" id="depart_le" class='form-control buttonIndexTrajet' tabindex="4" placeholder="Date" readonly/>
+          <input type="text" name="depart_le" id="dateJS" class='form-control buttonIndexTrajet' tabindex="4" placeholder="Date" readonly/>
         </div>
       </div>
     </div>
@@ -63,6 +66,8 @@
     <div class="map_google">
       <div id="map" class="center-block text-center"></div>
       <script>
+	$('#dateJS').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
+	
 	function initMap() {
         var uluru = {lat: -25.363, lng: 131.044};
         var map = new google.maps.Map(document.getElementById('map'), {
