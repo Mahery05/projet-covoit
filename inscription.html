@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="index.css" >
     <link rel="stylesheet" href="css/bootstrap-material-datetimepicker.css">
-    
+
+    <!-- Script Google -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/moment.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap-material-datetimepicker.js" type="text/javascript"></script>
+
 
     
 
@@ -22,7 +23,7 @@
 
   <body id="body1">
     
-    <!-- Nav-Bar en haut de l'écran -->
+    <!-- Nav-Bar -->
     
     <nav class="navbar navbar-inverse navbar-fixed-top">
       
@@ -63,16 +64,12 @@
 
 
 
-    <!-- Formulaire d'inscription -->
-    
-    <div class="container">
-      
-      <div class="pad">
-	
-	<form method="post" action="traitement.php">
-	  
+    <!-- Formulaire d'inscription -->    
+    <div class="container" id="containerMain">
+      <div class="pad"id="InputMain" >	
+	<form method="post" action="traitement.php">	  
 	  <p>
-
+	    
 	    <label for="email">Votre adresse mail :</label>
 	    <input type="email" />
 
@@ -101,18 +98,12 @@
 	    
 	    <br />
 	    <textarea name="ameliorer" id="ameliorer" rows="10" cols="50">
-	    </textarea>
-	    
+	    </textarea>	    
 	  </p>
-
-      </div>
-      
+      </div>  
     </div>
     
 
 
- </body>
-
-
-
+  </body>
 </html>
