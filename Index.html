@@ -43,14 +43,21 @@
               <span class="caret"></span>
 	    </a>   
             <ul class="dropdown-menu">
-              <li>
-		<label for="usr"> Adresse-Mail :</label>
-		<input type="text" id="email"  class="form-control">
-	      </li>	      
-              <li>
-		<label for="usr"> Mot de passe :</label>
-		<input type="text" class="form-control" id="usr">
-	      </li>
+             <form method="post" action="formulairetest.php">
+		<center>
+		  <li>
+		    <label for="usr"> Adresse-Mail :</label>
+		    <input type="text" id="email"  class="form-control">
+		  </li>
+		  
+		  <li>
+		    <label for="usr"> Mot de passe :</label>
+		    <input type="text" class="form-control" id="usr">
+		  </li>
+		  <li>
+		    <input type="submit" value="Envoyer" />
+		  </li>
+		</center>
             </ul>
 	  </li>
 	  <li><a href="inscription.html"><span class="glyphicon glyphicon-log-in"></span> S'inscrire</a></li>

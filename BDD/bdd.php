@@ -16,17 +16,13 @@
 
     foreach($dbh->query('SELECT * FROM etudiant') as $key => $row) {
 
-    //print_r($row);
+    print_r($row);
     
-    foreach ($row as $value) {
-    echo $value . "\t";
-    }
+    
     
     echo "<br/>";
     }
-    /*
-
-    */
+   
     $dbh = null;
     }catch (PDOException $e) {
     print "Erreur !: " . $e->getMessage() . "<br/>";
