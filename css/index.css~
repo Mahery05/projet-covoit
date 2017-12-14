@@ -4,7 +4,7 @@ html {
 
 
 body{
-    background-image:url(background.jpg);
+    background-image:url(background2.jpg);
     background-repeat:no-repeat;
     background-attachment:fixed;
     height: 200px;
@@ -46,4 +46,20 @@ footer{
 .Adresse_depart{
 
     text-align: center;
+}
+
+.marge{
+ 
+    
+   padding : 10px;
+}
+
+.map_google{
+
+    padding : 200px;
+
+}
+
+.pad{
+    padding : 90px;
 }
