@@ -77,12 +77,18 @@ footer{
     
 }
 
+
 #InputMain{
     background-color: lightblue;
     width : 580px;
     height : 540px;
 }
 
+#InputMain2{
+    background-color: lightblue;
+    width : 400px;
+    height : 540px;
+}
 
 #article {
     background-color: lightblue;

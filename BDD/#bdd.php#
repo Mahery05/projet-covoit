@@ -8,8 +8,7 @@
        try {
        $dbh = new PDO('mysql:host=venus;dbname=todorico', "todorico", "12345678");
        
-       $dbh->query('@creation.sql');
-    $dbh->query('@remplissage.sql');
+   
 
     $reponse = $dbh->query('SELECT * FROM MEMBRE);
 

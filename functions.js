@@ -18,7 +18,7 @@ initialize = function(){
   var marker = new google.maps.Marker({
     position : latLng,
     map      : map,
-    title    : "Lille"
+      title    : "Lilles"
   });
   
   var contentMarker = [
@@ -62,7 +62,10 @@ initialize = function(){
 
 };
 
+
+
 calculate = function(){
+    
     origin      = document.getElementById('origin').value; // Le point départ
     destination = document.getElementById('destination').value; // Le point d'arrivé
     if(origin && destination){
@@ -76,8 +79,11 @@ calculate = function(){
             if(status == google.maps.DirectionsStatus.OK){
                 direction.setDirections(response); // Trace l'itinéraire sur la carte et les différentes étapes du parcours
             }
+	    
         });
     }
+    
+    
 };
 
 initialize();
