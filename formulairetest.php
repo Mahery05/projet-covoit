@@ -69,46 +69,25 @@
       </div>
     </nav>
 
+    <!-- Formulaire d'inscription -->
+    
 
-
-    <!-- Formulaire d'inscription -->    
     <div class="container" id="containerMain">
-      <div class="pad" id="InputMain" >	
-	<form method="post" action="traitement.php">	  
-	  <p>
-	    
-	    <label for="email">Votre adresse mail :</label>
-	    <input type="email" />
-
-	    <br />
-	    <label for="date">Votre date de naissance :</label>
-	    <input type="date" />
-	    
-	    <br />
-	    <label for="nom">Votre nom :</label>
-	    <input type="text" name="nom" id="nom" />
-
-	    <br />
-	    <label for="prenom">Votre prénom :</label>
-	    <input type="text" name="prenom" id="prenom" />
-
-	    <br />
-	    <label for="ville">Votre ville :</label>
-	    <input type="text" name="ville" id="ville" />
-	    
-	    <br />
-	    <label for="pass">Votre mot de passe :</label>
-	    <input type="password" name="pass" id="pass" />
-
-	    <br />
-	    <label for="ameliorer"> Une rapide description de vous ?(optionnel)</label>
-	    
-	    <br />
-	    <textarea name="ameliorer" id="ameliorer" rows="10" cols="50">
-	    </textarea>	    
-	  </p>
-      </div>  
+      <center>
+	<div class="pad" id="InputMain2" >
+	  
+	  <p><?php echo $_POST['mail']; ?></br>
+	    <?php echo $_POST['dateD']; ?></br>
+	    <?php echo $_POST['villeDep']; ?></br>
+	    <?php echo $_POST['villeArr']; ?></br>
+	    <?php echo $_POST['voiture']; ?></br>
+	    <?php echo $_POST['place']; ?></br>
+	    <?php echo $_POST['prix']; ?></br></p>
+	</div>
+      </center>
     </div>
+    
+    
 
 
     
@@ -131,3 +110,9 @@
 
   </body>
 </html>
+
+
+
+
+
+<!-- <p>Je sais que tu vas à <?php echo $_POST['villeDep']; ?> jusqu'à <?php echo $_POST['villeArr']; ?> le <?php echo $_POST['dateD']; ?> !</p> -->

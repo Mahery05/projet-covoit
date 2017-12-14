@@ -39,24 +39,7 @@
 	
 	<ul class="nav navbar-nav navbar-right">
 	  <li><a href="proposition.html"><span class="glyphicon glyphicon-plus-sign"></span>Proposition-Trajet</a></li>
-	  <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Connexion
-              <span class="caret"></span>
-	    </a>
-	    
-            <ul class="dropdown-menu">
-              <li>
-		<label for="usr"> Adresse-Mail :</label>
-		<input type="text" id="email"  class="form-control">
-	      </li>
-	      
-              <li>
-		<label for="usr"> Mot de passe :</label>
-		<input type="text" class="form-control" id="usr">
-	      </li>
-            </ul>
-	  </li>
-	  
+	  <li class="dropdown"> <a  href="Index.html"> Connexion</a> </li>
 	  <li><a href="inscription.html"><span class="glyphicon glyphicon-log-in"></span> S'inscrire</a></li>
 	  
 	</ul>
@@ -69,35 +52,39 @@
     <div class="container" id="containerMain">
       <center>
       <div class="pad" id="InputMain2" >	
-	<form method="post" action="traitement.php">	  
+	<form method="post" action="formulairetest.php">	  
 	  <p>
 	    
 	   <label for="email">Adresse mail :</label>
-	    <input type="email" />
+	    <input type="email" name="mail" autofocus required/>
 
 	    <br />
 	    <label for="date">Date du trajet :</label>
-	    <input type="date" />
+	    <input type="date" name="dateD" recquired/>
 	    
 	    <br />
 	    <label for="villeDep">Ville départ :</label>
-	    <input type="text" name="villeDep" id="villeDep" />
+	    <input type="text" name="villeDep" id="villeDep" required/>
 
 	    <br />
 	    <label for="villeArr">Ville arrivée :</label>
-	    <input type="text" name="villeArr" id="villeArr" />
+	    <input type="text" name="villeArr" id="villeArr" required/>
 
 	    <br />
 	    <label for="voiture">Type voiture :</label>
-	    <input type="text" name="voiture" id="voiture" />
+	    <input type="text" name="voiture" id="voiture" required/>
 	    
 	    <br />
 	    <label for="place">Nombre place :</label>
-	    <input type="text" name="place" id="place" />
+	    <input type="text" name="place" id="place" required/>
 
 	    <br />
 	    <label for="prix"> Prix du trajet:</label>
-	    <input type="text" name="prix" id="prix" >
+	    <input type="text" name="prix" id="prix" required/>
+
+	    <input type="submit" value="Envoyer" />
+
+	 
 	
 	       
 	  </p>
