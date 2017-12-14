@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>BDD COVOITURAGE</title>
-</head>
-<body>
-	<?php
-	try {
-		$dbh = new PDO('mysql:host=venus;dbname=todorico', "todorico", "12345678");
-		
-		$dbh->query('@creation.sql');
-		$dbh->query('@remplissage.sql');
+	<head>
+		<title>BDD COVOITURAGE</title>
+	</head>
 
-		$reponse = $dbh->query('SELECT * FROM ABONNE');
+	<body>
+		<?php
+		ini_set('display_errors', 1); error_reporting(E_ALL); //repère les erreurs
+		try {
+			$dbh = new PDO('mysql:host=venus; dbname=todorico', "todorico", "12345678");
 
-		while($donnees = $reponse->fetch()){
-			echo $donnees;
+			$query = 'SELECT * FROM etudiant';
+			
+			$result_query = $db->query($query);
+
+			foreach($dbh->query('SELECT * FROM etudiant') as $key => $row) {
+
+				//print_r($row);
+				
+				foreach ($row as $value) {
+					echo $value . "\t";
+				}
+				
+				echo "<br/>";
+			}
+			/*
+
+			*/
+			$dbh = null;
+		}catch (PDOException $e) {
+			print "Erreur !: " . $e->getMessage() . "<br/>";
+			die();
 		}
-
-		$dbh = null;
-// fermeture connexion
-	}catch (PDOException $e) {
-		print "Erreur !: " . $e->getMessage() . "<br/>";
-		die();
-	}
-	?>
-</body>
+		?>
+	</body>
 </html>
