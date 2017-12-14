@@ -3,22 +3,31 @@
   <head>
     <title>BDD COVOITURAGE</title>
   </head>
+
   <body>
     <?php
+       ini_set('display_errors', 1); error_reporting(E_ALL); //repère les erreurs
        try {
-       $dbh = new PDO('mysql:host=venus;dbname=todorico', "todorico", "12345678");
+       $dbh = new PDO('mysql:host=venus; dbname=todorico', "todorico", "12345678");
+
+       $query = 'SELECT * FROM etudiant';
        
-       $dbh->query('@creation.sql');
-    $dbh->query('@remplissage.sql');
+       $result_query = $db->query($query);
 
-    $reponse = $dbh->query('SELECT * FROM MEMBRE);
+    foreach($dbh->query('SELECT * FROM etudiant') as $key => $row) {
 
-    while($donnees = $reponse->fetch()){
-    echo $donnees;
+    //print_r($row);
+    
+    foreach ($row as $value) {
+    echo $value . "\t";
     }
+    
+    echo "<br/>";
+    }
+    /*
 
+    */
     $dbh = null;
-    // fermeture connexion
     }catch (PDOException $e) {
     print "Erreur !: " . $e->getMessage() . "<br/>";
     die();
@@ -26,3 +35,4 @@
     ?>
   </body>
 </html>
+
