@@ -1,37 +1,113 @@
 <?php
 
-function getTrajets($ville_dep, $ville_ar/*, $date_rdv*/){
+function addTrajet($email, $ville_dep, $ville_ar, $adresse_dep, $adresse_ar, $date_dep, $type_voit, $nb_places, $prix){
+	$bdd = dbConnect();
+
+	$req = $bdd->prepare('INSERT INTO TRAJET 
+	(email_conducteur, ville_dep, ville_ar, adresse_dep, adresse_ar, date_dep, type_voit, nb_places, prix) 
+	VALUES 
+	(:email, UPPER(:ville_dep),  UPPER(:ville_ar), :adresse_dep, :adresse_ar, :date_dep, :type_voit, :nb_places, :prix)');
+
+	$req->execute(array(
+	'email' => $email,
+    'ville_dep' => $ville_dep,
+    'ville_ar' => $ville_ar,
+    'adresse_dep' => $adresse_dep,
+    'adresse_ar' => $adresse_ar,
+    'date_dep' => $date_dep,
+    'type_voit' => $type_voit,
+    'nb_places' => $nb_places,
+    'prix' => $prix
+    ));
+}
+
+function getTrajets($ville_dep, $ville_ar, $date_dep){
 	$bdd = dbConnect();
 
 	$req = $bdd->prepare('SELECT * FROM TRAJET 
-						WHERE VILLE_DEP = :ville_dep 
-						AND VILLE_AR = :ville_ar 
-						/*AND DATE_RDV = :date_rdv*/');
+						WHERE ville_dep = :ville_dep 
+						AND ville_ar = :ville_ar 
+						AND date_dep = :date_dep');
 
 	$req->execute(array(
 	    'ville_dep' => $ville_dep,
-	    'ville_ar' => $ville_ar
-		//'date_rdv' => $date_rdv
+	    'ville_ar' => $ville_ar,
+		'date_dep' => $date_dep
 	));
+
 	return $req;
 }
 
-function addTrajet($ville_dep, $ville_ar, $nb_places){
+function addMember($email, $pass, $nom, $prenom, $num_tel){
 	$bdd = dbConnect();
 
-	$req = $bdd->prepare('INSERT INTO TRAJET (MAIL_MEMBRE, VILLE_DEP, DATE_RDV, ADR_RDV, VILLE_AR, ADR_AR, TYPE_VOIT, NB_PLACES, PRIX) VALUES ("mailaupif@pif.com", :ville_dep, NULL, "ADR_AU_PIF_DEP", :ville_ar, "ADR_AU_PIF_AR" , "VOIT_AU_PIF", :nb_places, 1000)');
+	$mdp = $pass; //password_hash($pass, PASSWORD_DEFAULT);
+
+	$req = $bdd->prepare('INSERT INTO MEMBRE (email, mdp, nom, prenom, num_tel, adresse, date_naissance) 
+	VALUES (:email, :mdp, :nom, :prenom, :num_tel, NULL, NULL)');
 
 	$req->execute(array(
-    'ville_dep' => $ville_dep,
-    'ville_ar' => $ville_ar,
-    'nb_places' => $nb_places
+    'email' => $email,
+    'mdp' => $mdp,
+    'nom' => $nom,
+    'prenom' => $prenom,
+    'num_tel' => $num_tel
     ));
+}
+
+function addAdmin($email){
+	$bdd = dbConnect();
+
+	$req = $bdd->prepare('INSERT INTO ADMIN (email) VALUES (:email)');;
+
+	$req->execute(array(
+    'email' => $email
+    ));
+}
+
+function addBanni($email_ban, $date_fin){
+	$bdd = dbConnect();
+
+	$req = $bdd->prepare('INSERT INTO BANNI (email_ban, date_debut, date_fin) VALUES (:email_ban, NOW(), :date_fin)');;
+
+	$req->execute(array(
+    'email_ban' => $email_ban,
+    'date_fin' => $date_fin
+    ));
+}
+
+function addAvis($email_receveur, $email_donneur, $note){
+	$bdd = dbConnect();
+
+	$req = $bdd->prepare('INSERT INTO AVIS (email_receveur, email_donneur, note, date_avis) 
+		VALUES (:email_receveur, :email_donneur, :note, NOW()');
+
+	$req->execute(array(
+	'email_receveur' => $email_receveur,
+    'email_donneur' => $email_donneur,
+    'note' => $note
+    ));
+}
+
+function getAvis($email)
+{
+	$bdd = dbConnect();
+
+	$req = $bdd->prepare('SELECT AVG(note) FROM AVIS WHERE email_receveur = :email');
+
+	$req->execute(array(
+    'email' => $email
+    ));
+
+    $note = $req->fetch();
+
+    return $note;
 }
 
 function isMember($email){
 	$bdd = dbConnect();
 
-	$req = $bdd->prepare('SELECT * FROM MEMBRE WHERE MAIL = :email');
+	$req = $bdd->prepare('SELECT * FROM MEMBRE WHERE email = :email');
 
 	$req->execute(array(
 	    'email' => $email
@@ -42,20 +118,6 @@ function isMember($email){
 	return $resultat;
 }
 
-function addMember($nom, $prenom, $email, $pass){
-	$bdd = dbConnect();
-
-	//$pass_hache = password_hash($pass, PASSWORD_DEFAULT);
-	
-	$req = $bdd->prepare('INSERT INTO MEMBRE VALUES (:email, :nom, :prenom, "MONTPELLIER", 12 , 0699999999, 7)');
-
-	$req->execute(array(
-    'email' => $email,
-    'nom' => $nom,
-    'prenom' => $prenom
-    ));
-}
-
 function updateMember(){
 
 }
@@ -63,13 +125,13 @@ function updateMember(){
 function connectMember($email, $pass){
 	$bdd = dbConnect();
 	// Hachage du mot de passe
-	$pass_hache = password_hash($pass, PASSWORD_DEFAULT);
+	$mdp = $pass;//password_hash($pass, PASSWORD_DEFAULT);
 	// Vérification des identifiants
-	$req = $bdd->prepare('SELECT * FROM MEMBRE WHERE EMAIL = :email AND MDP = :pass');
+	$req = $bdd->prepare('SELECT * FROM MEMBRE WHERE email = :email AND mdp = :mdp');
 
 	$req->execute(array(
 	    'email' => $email,
-	    'pass' => $pass
+	    'mdp' => $mdp
 	));
 
 	$resultat = $req->fetch();

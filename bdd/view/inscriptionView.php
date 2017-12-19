@@ -31,6 +31,12 @@
 					</td>
 				</tr>
 
+				<tr>
+					<td colspan="2">
+						<input type="text" name="num_tel" placeholder="Numero de telephone" style="width:100%" required>
+					</td>
+				</tr>
+
 			</table>
 
 			<input type="submit" value="S'inscrire"> 
