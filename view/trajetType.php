@@ -1,6 +1,6 @@
 <?php 
 //ajout des variables path
-include $_SERVER['DOCUMENT_ROOT'] . '/Projet-covoit/bdd/include/path.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/Projet-covoit/include/path.php';
 ?>
 
 <!DOCTYPE html>

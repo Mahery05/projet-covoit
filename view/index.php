@@ -1,16 +1,30 @@
 <?php 
 //ajout des variables path
-include $_SERVER['DOCUMENT_ROOT'] . '/Projet-covoit/bdd/include/path.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/Projet-covoit/include/path.php';
+<?php /*echo $root_http <*/
 ?>
 
 <!DOCTYPE html>
 
 <html lang="en">
 
-<?php 
-	$head_title = 'OtterCovoit | Acceuil'; 
-	include $include_path . 'head.php'; 
-?>
+<head>
+	<title>OtterCovoit | F.A.Q </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="public/css/test.css" >
+	<link rel="stylesheet" href="css/bootstrap-material-datetimepicker.css">
+
+	<!-- Script Google -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="js/moment.min.js" type="text/javascript"></script>
+
+	
+</head>
 
 <body id="body1">
 
